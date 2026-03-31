@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AxisPoint Capital Group - Premium Lending Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #fbbf24;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #fbbf24;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,128C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #fbbf24;
+            color: #1e3a8a;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.4);
+            background: #f59e0b;
+        }
+
+        .cta-button-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+
+        .cta-button-secondary:hover {
+            background: white;
+            color: #1e3a8a;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Products Section */
+        .products {
+            background: #f8fafc;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #3b82f6;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border-top-color: #fbbf24;
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-icon {
+            transform: scale(1.1) rotateY(360deg);
+        }
+
+        .product-card h3 {
+            font-size: 1.6rem;
+            margin: 1rem 0;
+            color: #1e3a8a;
+            font-weight: 700;
+        }
+
+        .product-card p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 80px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+            z-index: 0;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+            background: white;
+        }
+
+        .step-number {
+            font-size: 3.5rem;
+            color: #fbbf24;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+            font-weight: 700;
+        }
+
+        .step p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial p {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: #1e3a8a;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-role {
+            color: #64748b;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #1e3a8a;
+            font-weight: 800;
+        }
+
+        .about-text p {
+            color: #475569;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 15px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .about-image-content {
+            text-align: center;
+        }
+
+        .about-avatar {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-title {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
+            background: white;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+            grid-column: 1 / -1;
+        }
+
+        .contact-form button {
+            background: #fbbf24;
+            color: #1e3a8a;
+            padding: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            grid-column: 1 / -1;
+        }
+
+        .contact-form button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 2px solid #1e3a8a;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #fbbf24;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e3a8a;
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 4rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-button-secondary {
+                margin-left: 0;
+                margin-top: 1rem;
+                display: block;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .steps::before {
+                display: none;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Axis<span>Point</span> Capital</a>
+            <nav>
+                <ul>
+                    <li><a href="#products">Services</a></li>
+                    <li><a href="#how-it-works">Process</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Flexible Lending Solutions for Your Future</h1>
+            <p>Get approved for loans with competitive rates and transparent terms</p>
+            <div>
+                <a href="#contact" class="cta-button">Apply Now</a>
+                <a href="#products" class="cta-button cta-button-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products/Services Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Lending Products</h2>
+            <p class="section-subtitle">Explore our range of flexible loan options designed to fit your unique financial needs</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">💳</div>
+                    <h3>Personal Loans</h3>
+                    <p>Fast approval personal loans with flexible terms. Perfect for consolidation, home improvements, or any personal goal.</p>
+                    <a href="#contact" class="cta-button">Apply Today</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🏢</div>
+                    <h3>Business Loans</h3>
+                    <p>Fuel your business growth with competitive business loans. Expert guidance and flexible repayment options available.</p>
+                    <a href="#contact" class="cta-button">Apply Today</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🏠</div>
+                    <h3>Mortgage Loans</h3>
+                    <p>Achieve your dream home with our competitive mortgage rates and transparent, flexible terms tailored for you.</p>
+                    <a href="#contact" class="cta-button">Apply Today</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🚗</div>
+                    <h3>Auto Loans</h3>
+                    <p>Finance your vehicle with low rates and quick approval. Drive home with confidence and affordable payments.</p>
+                    <a href="#contact" class="cta-button">Apply Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>Our Simple Process</h2>
+            <p class="section-subtitle">Get approved for a loan in three easy steps</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Apply Online</h3>
+                    <p>Complete our secure application in minutes with just basic information.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Quick Review</h3>
+                    <p>Our team reviews your application and provides a decision quickly.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Receive Funds</h3>
+                    <p>Get approved funds transferred directly to your account.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <p class="section-subtitle">Trusted by thousands of satisfied customers</p>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"AxisPoint Capital made my dream of owning a home a reality. The process was smooth and the team was incredibly supportive!"</p>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-role">Homeowner</div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"I got my business loan approved in just 5 days. The rates are competitive and the customer service is exceptional. Highly recommended!"</p>
+                    <div class="testimonial-author">Michael Chen</div>
+                    <div class="testimonial-role">Business Owner</div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"Professional, transparent, and reliable. AxisPoint Capital is the best lending experience I've had. They truly care about their clients!"</p>
+                    <div class="testimonial-author">Emily Rodriguez</div>
+                    <div class="testimonial-role">Client</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>About Angela Vann</h3>
+                    <p>With over 15 years of experience in the financial industry, Angela Vann founded AxisPoint Capital Group to revolutionize the lending experience.</p>
+                    <p>Our mission is to empower individuals and businesses by providing transparent, customer-focused lending solutions with competitive rates and exceptional support.</p>
+                    <p>We believe in building long-term relationships with our clients and helping them achieve their financial goals with confidence and clarity.</p>
+                </div>
+                <div class="about-image">
+                    <div class="about-image-content">
+                        <div class="about-avatar">👩‍💼</div>
+                        <div class="about-name">Angela Vann</div>
+                        <div class="about-title">Founder & CEO</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">Fill out the form below and our team will contact you within 24 hours</p>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-row">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+                <div class="form-row">
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="tel" placeholder="Phone Number" required>
+                </div>
+                <div class="form-row">
+                    <input type="text" placeholder="Loan Type" required>
+                    <input type="text" placeholder="Loan Amount" required>
+                </div>
+                <textarea placeholder="Tell us about your financial needs and goals..." required></textarea>
+                <button type="submit">Send Application</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#products">Our Services</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Client Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>📧 info@axispoint.com</li>
+                    <li>📱 (555) 123-4567</li>
+                    <li>📍 New York, NY</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AxisPoint Capital Group. All rights reserved. | Angela Vann CEO</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your application! We will contact you within 24 hours.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
